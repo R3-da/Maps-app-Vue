@@ -19,13 +19,18 @@ export default defineComponent({
       const map = new Mapboxgl.Map({
         container: mapElement.value, // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
-        center: [-74.5, 40], // starting position [lng, lat]
+        center: userLocation.value,
         zoom: 15, // starting zoom
       });
+
+      // Marker
+      const myLocationMarker = new Mapboxgl.Marker()
+        .setLngLat(userLocation.value)
+        .addTo(map);
     }
 
     onMounted(() => {
-      if (isUserlocationReady.value) 
+      if (isUserlocationReady.value)
         return initMap();
     });
 
