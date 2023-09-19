@@ -18,14 +18,25 @@ export default defineComponent({
 
       const map = new Mapboxgl.Map({
         container: mapElement.value, // container ID
-        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        style: 'mapbox://styles/mapbox/streets-v12',
         center: userLocation.value,
         zoom: 15, // starting zoom
       });
 
+      // Pop-out in the marker
+      const myLocationPopup = new Mapboxgl.Popup()
+        .setLngLat(userLocation.value)
+        .setHTML(
+          `
+            <h3>Here I'm</h3>
+            <p>Currently in Villa de Alvarez</p>
+          `
+        )
+
       // Marker
       const myLocationMarker = new Mapboxgl.Marker()
         .setLngLat(userLocation.value)
+        .setPopup(myLocationPopup)
         .addTo(map);
     }
 
