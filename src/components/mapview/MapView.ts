@@ -38,6 +38,8 @@ export default defineComponent({
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopup)
         .addTo(map);
+
+      // TODO: Put the Map into Vuex
     }
 
     onMounted(() => {
