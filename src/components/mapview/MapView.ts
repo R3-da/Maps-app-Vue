@@ -1,5 +1,5 @@
 import { defineComponent, onMounted, ref, watch } from 'vue';
-import { usePlacesStore } from '@/composables';
+import { useMapStore, usePlacesStore } from '@/composables';
 import Mapboxgl from 'mapbox-gl';
 
 export default defineComponent({
@@ -8,6 +8,7 @@ export default defineComponent({
 
     const mapElement = ref<HTMLDivElement>();
     const { userLocation, isUserlocationReady } = usePlacesStore();
+    const { setMap } = useMapStore();
 
     const initMap = async () => {
       // Guard instances
@@ -40,6 +41,7 @@ export default defineComponent({
         .addTo(map);
 
       // TODO: Put the Map into Vuex
+      setMap(map);
     }
 
     onMounted(() => {
