@@ -8,9 +8,6 @@
       placeholder="Buscar lugares..."
       v-model="searchTerm"
     />
-
-    {{ debouncedValue }}
-
     <SearchResults />
   </div>
 </template>
