@@ -15,13 +15,18 @@
   >
     <li
       v-for="place in places"
-      :key="place.id"
       class="list-group-item list-group-item-action"
+      :class="{ 'active': place.id === activePlace }"
+      :key="place.id"
+      @click="onPlaceClicked(place)"
     >
       <h5>{{ place.text }}</h5>
       <p>{{ place.place_name }}</p>
       <div align="right">
-        <button class="btn btn-outline-primary btn-sm">
+        <button
+          class="btn btn-sm"
+          :class="( place.id === activePlace ) ? 'btn-outline-light' : 'btn-outline-primary'"
+        >
           Direcciones
         </button>
       </div>
