@@ -8,12 +8,12 @@ export interface MapState {
 }
 
 function state(): MapState {
-    return {
-        map: undefined,
-        markers: [],
-        distance: undefined,
-        duration: undefined,
-    }
+  return {
+    map: undefined,
+    markers: [],
+    distance: undefined,
+    duration: undefined,
+  }
 }
 
 export default state;
