@@ -1,0 +1,5 @@
+
+Todo:
+  ☐ display current location longitude, latitude, zoom level, bearing and pitch
+  ☐ display multiple areas borders
+  ☐ consolidate overlapping and intersecting regions into a single entity.
