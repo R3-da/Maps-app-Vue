@@ -3,5 +3,6 @@ Todo:
   ☐ display current location longitude, latitude, zoom level, bearing and pitch
   ☐ display multiple areas borders
   ☐ consolidate overlapping and intersecting regions into a single entity
-  ☐ try mapbox-gl-js v3 with 3d buildings
+  ✔ try mapbox-gl-js v3 with 3d buildings @done(24-03-26 10:18)
+  ☐ migrate from vuex to pinia
   
