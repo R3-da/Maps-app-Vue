@@ -1,8 +1,6 @@
-import Mapboxgl from "mapbox-gl";
-
 export interface MapState {
-  map?: Mapboxgl.Map;
-  markers: Mapboxgl.Marker[];
+  map?: mapboxgl.Map;
+  markers: mapboxgl.Marker[];
   distance?: number;
   duration?: number;
 }

@@ -1,6 +1,6 @@
 import { defineComponent, onMounted, ref, watch } from 'vue';
 import { useMapStore, usePlacesStore } from '@/composables';
-import Mapboxgl from 'mapbox-gl';
+import mapboxgl from 'mapbox-gl';
 
 export default defineComponent({
   name: 'MapView',
@@ -17,15 +17,15 @@ export default defineComponent({
       
       await Promise.resolve();  // <--- This line helps to finish all async process to make a right build of the Map rendered on the browser
 
-      const map = new Mapboxgl.Map({
+      const map = new mapboxgl.Map({
         container: mapElement.value, // container ID
-        style: 'mapbox://styles/mapbox/streets-v12',
+        style: 'mapbox://styles/mapbox/standard',
         center: userLocation.value,
         zoom: 15, // starting zoom
       });
 
       // Pop-out in the marker
-      const myLocationPopup = new Mapboxgl.Popup()
+      const myLocationPopup = new mapboxgl.Popup()
         .setLngLat(userLocation.value)
         .setHTML(
           `
@@ -35,7 +35,7 @@ export default defineComponent({
         )
 
       // Marker
-      const myLocationMarker = new Mapboxgl.Marker()
+      const myLocationMarker = new mapboxgl.Marker()
         .setLngLat(userLocation.value)
         .setPopup(myLocationPopup)
         .addTo(map);

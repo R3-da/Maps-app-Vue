@@ -1,10 +1,10 @@
 import { MutationTree } from 'vuex';
 import { MapState } from './state';
-import Mapboxgl from 'mapbox-gl';
+import mapboxgl from 'mapbox-gl';
 import { Feature } from "@/interfaces/places";
 
 const mutation: MutationTree<MapState> = {
-  setMap(  state, map: Mapboxgl.Map ) {
+  setMap(  state, map: mapboxgl.Map ) {
     state.map = map;
   },
   
@@ -20,7 +20,7 @@ const mutation: MutationTree<MapState> = {
       const [ lng, lat ] = place.center;
       
       // Pop-out in the marker
-      const popup = new Mapboxgl.Popup()
+      const popup = new mapboxgl.Popup()
         .setLngLat([ lng, lat ])
         .setHTML(
           `
@@ -30,7 +30,7 @@ const mutation: MutationTree<MapState> = {
         )
 
       // Marker
-      const marker = new Mapboxgl.Marker()
+      const marker = new mapboxgl.Marker()
         .setLngLat([ lng, lat ])
         .setPopup(popup)
         .addTo(state.map);
